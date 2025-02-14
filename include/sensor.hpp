@@ -10,7 +10,7 @@ class Sensor {
     public:     explicit Sensor(uint8_t const t_trigPin, uint8_t const t_echoPin);
     public:     virtual ~Sensor();
     
-    public:     uint32_t getDistance() const;
+    public:     uint16_t getDistance() const;
 };
 
 #endif

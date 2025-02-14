@@ -37,25 +37,12 @@
     }
   ],
   "connections": [
-    [ "oled1:GND", "bb1:31b.j", "", [ "$bb" ] ],
-    [ "oled1:VCC", "bb1:32b.j", "", [ "$bb" ] ],
-    [ "oled1:SCL", "bb1:33b.j", "", [ "$bb" ] ],
-    [ "oled1:SDA", "bb1:34b.j", "", [ "$bb" ] ],
     [ "bb1:32b.f", "bb1:tp.25", "green", [ "v0" ] ],
     [ "bb1:31b.f", "bb1:tn.25", "green", [ "v0" ] ],
-    [ "ultrasonic1:VCC", "bb1:4b.j", "", [ "$bb" ] ],
-    [ "ultrasonic1:TRIG", "bb1:3b.j", "", [ "$bb" ] ],
-    [ "ultrasonic1:ECHO", "bb1:2b.j", "", [ "$bb" ] ],
-    [ "ultrasonic1:GND", "bb1:1b.j", "", [ "$bb" ] ],
-    [ "ultrasonic2:VCC", "bb1:63b.j", "", [ "$bb" ] ],
-    [ "ultrasonic2:TRIG", "bb1:62b.j", "", [ "$bb" ] ],
-    [ "ultrasonic2:ECHO", "bb1:61b.j", "", [ "$bb" ] ],
-    [ "ultrasonic2:GND", "bb1:60b.j", "", [ "$bb" ] ],
     [ "bb1:63b.f", "bb1:tp.50", "green", [ "v0" ] ],
     [ "bb1:60b.f", "bb1:tn.49", "green", [ "v0" ] ],
     [ "bb1:4b.f", "bb1:tp.2", "green", [ "v0" ] ],
     [ "bb1:1b.f", "bb1:tn.1", "green", [ "v0" ] ],
-    [ "uno:AREF", "bb1:tn.28", "green", [ "v0" ] ],
     [ "uno:5V", "bb1:tp.38", "red", [ "v-19.1", "h169", "v192" ] ],
     [ "bb1:2b.f", "uno:10", "green", [ "v-192", "h9.6" ] ],
     [ "bb1:3b.f", "uno:11", "green", [ "v-182.4", "h268.8" ] ],
@@ -67,7 +54,20 @@
       "green",
       [ "v-172.8", "h-163.2", "v-182.4", "h0", "v-19.2", "h28.8" ]
     ],
-    [ "uno:A5", "bb1:33b.f", "green", [ "v0.1", "h-33.1", "v220.8", "h163.2" ] ]
+    [ "uno:A5", "bb1:33b.f", "green", [ "v0.1", "h-33.1", "v220.8", "h163.2" ] ],
+    [ "ultrasonic1:VCC", "bb1:4b.j", "", [ "$bb" ] ],
+    [ "ultrasonic1:TRIG", "bb1:3b.j", "", [ "$bb" ] ],
+    [ "ultrasonic1:ECHO", "bb1:2b.j", "", [ "$bb" ] ],
+    [ "ultrasonic1:GND", "bb1:1b.j", "", [ "$bb" ] ],
+    [ "ultrasonic2:VCC", "bb1:63b.j", "", [ "$bb" ] ],
+    [ "ultrasonic2:TRIG", "bb1:62b.j", "", [ "$bb" ] ],
+    [ "ultrasonic2:ECHO", "bb1:61b.j", "", [ "$bb" ] ],
+    [ "ultrasonic2:GND", "bb1:60b.j", "", [ "$bb" ] ],
+    [ "oled1:GND", "bb1:31b.j", "", [ "$bb" ] ],
+    [ "oled1:VCC", "bb1:32b.j", "", [ "$bb" ] ],
+    [ "oled1:SCL", "bb1:33b.j", "", [ "$bb" ] ],
+    [ "oled1:SDA", "bb1:34b.j", "", [ "$bb" ] ],
+    [ "bb1:tn.28", "uno:GND.1", "green", [ "v0" ] ]
   ],
   "dependencies": {}
 }

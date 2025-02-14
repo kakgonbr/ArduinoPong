@@ -13,7 +13,7 @@ Sensor::Sensor(uint8_t const t_trigPin, uint8_t const t_echoPin) : m_trigPin(t_t
 {
 }
 
-uint32_t Sensor::getDistance() const
+uint16_t Sensor::getDistance() const
 {
     digitalWrite(m_trigPin, LOW);
     delay(2);

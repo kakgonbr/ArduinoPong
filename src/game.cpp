@@ -1,12 +1,12 @@
 #include "game.hpp"
 
-Pair<int16_t, int16_t> Game::s_ballVelocity = {0, 0};
-Pair<uint16_t, uint16_t> Game::s_ball = {Display::WIDTH / 2, Display::HEIGHT / 2};
+Pair<int8_t, int8_t> Game::s_ballVelocity = {0, 0};
+Pair<uint8_t, uint8_t> Game::s_ball = {Display::WIDTH / 2, Display::HEIGHT / 2};
 Pair<uint8_t, uint8_t> Game::s_score = {0, 0};
 
-void Game::tick(Pair<uint16_t, uint16_t>* const t_leftPaddle, Pair<uint16_t, uint16_t>* const t_rightPaddle)
+void Game::tick(Pair<uint8_t, uint8_t> const t_leftPaddle, Pair<uint8_t, uint8_t> const t_rightPaddle)
 {
-    Pair<uint16_t, uint16_t> nextPos = {s_ball.left + s_ballVelocity.left, s_ball.right + s_ballVelocity.right};
+    Pair<uint8_t, uint8_t> nextPos = {s_ball.left + s_ballVelocity.left, s_ball.right + s_ballVelocity.right};
     // Serial.print("NEXT POS: ");
     // Serial.print(nextPos.left);
     // Serial.print(", ");
@@ -37,13 +37,13 @@ void Game::tick(Pair<uint16_t, uint16_t>* const t_leftPaddle, Pair<uint16_t, uin
     }
 
     // Serial.print("Left Paddle: ");
-    // Serial.print(t_leftPaddle->left);
+    // Serial.print(t_leftPaddle.left);
     // Serial.print(", ");
     // Serial.println(t_leftPaddle->right);
 
 
-    if ((nextPos.left == t_leftPaddle->left && t_leftPaddle->right + Config::PADDLE_HEIGHT >= nextPos.right && t_leftPaddle->right <= nextPos.right)
-        || (nextPos.left == t_rightPaddle->left && t_rightPaddle->right + Config::PADDLE_HEIGHT >= nextPos.right && t_rightPaddle->right <= nextPos.right))
+    if ((nextPos.left == t_leftPaddle.left && t_leftPaddle.right + Config::PADDLE_HEIGHT >= nextPos.right && t_leftPaddle.right <= nextPos.right)
+        || (nextPos.left == t_rightPaddle.left && t_rightPaddle.right + Config::PADDLE_HEIGHT >= nextPos.right && t_rightPaddle.right <= nextPos.right))
     {
         // Serial.print("PADDLE COLLISION");
         // Serial.print(nextPos.left);
@@ -62,15 +62,15 @@ Pair<uint8_t, uint8_t> &Game::getScore()
     return s_score;
 }
 
-Pair<uint16_t, uint16_t> &Game::getBall()
+Pair<uint8_t, uint8_t> &Game::getBall()
 {
     return s_ball;
 }
 
 void Game::throwBall(uint8_t t_direction)
 {
-    uint16_t xModifier = 1;
-    uint16_t yModifier = 1; // top right
+    uint8_t xModifier = 1;
+    uint8_t yModifier = 1; // top right
     switch (t_direction % 4)
     {
         case 1:
@@ -85,11 +85,11 @@ void Game::throwBall(uint8_t t_direction)
         break;
     }
     s_ball = {Display::WIDTH / 2, Display::HEIGHT / 2};
-    s_ballVelocity = {static_cast<int16_t>(Config::BALL_RATE.left * xModifier),
-                        static_cast<int16_t>(Config::BALL_RATE.right * yModifier)};
+    s_ballVelocity = {static_cast<int8_t>(Config::BALL_RATE.left * xModifier),
+                        static_cast<int8_t>(Config::BALL_RATE.right * yModifier)};
 }
 
-// void Game::setPaddles(Pair<uint16_t, uint16_t> const t_leftPaddle, Pair<uint16_t, uint16_t> const t_rightPaddle)
+// void Game::setPaddles(Pair<uint8_t, uint8_t> const t_leftPaddle, Pair<uint8_t, uint8_t> const t_rightPaddle)
 // {
 //     s_leftPaddle = t_leftPaddle;
 //     s_rightPaddle = t_rightPaddle;
