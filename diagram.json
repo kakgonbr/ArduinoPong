@@ -5,6 +5,14 @@
   "parts": [
     { "type": "wokwi-breadboard", "id": "bb1", "top": 217.8, "left": -179.6, "attrs": {} },
     {
+      "type": "chip-hc-05",
+      "id": "chip1",
+      "top": 393.6,
+      "left": -42.02,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
       "type": "wokwi-arduino-uno",
       "id": "uno",
       "top": -58.6,
@@ -34,6 +42,22 @@
       "top": 367.94,
       "left": 96.23,
       "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 264,
+      "left": 28.25,
+      "rotate": 90,
+      "attrs": { "value": "2000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 301.85,
+      "left": 56.2,
+      "rotate": 180,
+      "attrs": { "value": "1000" }
     }
   ],
   "connections": [
@@ -55,6 +79,11 @@
       [ "v-172.8", "h-163.2", "v-182.4", "h0", "v-19.2", "h28.8" ]
     ],
     [ "uno:A5", "bb1:33b.f", "green", [ "v0.1", "h-33.1", "v220.8", "h163.2" ] ],
+    [ "bb1:tn.28", "uno:GND.1", "green", [ "v0" ] ],
+    [ "bb1:18t.a", "bb1:tn.14", "green", [ "v0" ] ],
+    [ "bb1:17t.a", "bb1:tp.13", "green", [ "v0" ] ],
+    [ "bb1:19t.a", "uno:2", "green", [ "v-86.4", "h19.2" ] ],
+    [ "uno:3", "bb1:29t.a", "green", [ "v76.8", "h63.2" ] ],
     [ "ultrasonic1:VCC", "bb1:4b.j", "", [ "$bb" ] ],
     [ "ultrasonic1:TRIG", "bb1:3b.j", "", [ "$bb" ] ],
     [ "ultrasonic1:ECHO", "bb1:2b.j", "", [ "$bb" ] ],
@@ -67,7 +96,20 @@
     [ "oled1:VCC", "bb1:32b.j", "", [ "$bb" ] ],
     [ "oled1:SCL", "bb1:33b.j", "", [ "$bb" ] ],
     [ "oled1:SDA", "bb1:34b.j", "", [ "$bb" ] ],
-    [ "bb1:tn.28", "uno:GND.1", "green", [ "v0" ] ]
+    [ "chip1:State", "bb1:21b.j", "", [ "$bb" ] ],
+    [ "chip1:RXD", "bb1:20b.j", "", [ "$bb" ] ],
+    [ "chip1:TXD", "bb1:19b.j", "", [ "$bb" ] ],
+    [ "chip1:GND", "bb1:18b.j", "", [ "$bb" ] ],
+    [ "chip1:VCC", "bb1:17b.j", "", [ "$bb" ] ],
+    [ "chip1:Key", "bb1:16b.j", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:tn.18", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:23t.d", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:29t.e", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:23t.e", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:20b.f", "green", [ "v9.6", "h-27.6" ] ],
+    [ "bb1:19t.e", "bb1:19b.f", "green", [ "v0" ] ],
+    [ "bb1:18t.e", "bb1:18b.f", "green", [ "v0" ] ],
+    [ "bb1:17t.e", "bb1:17b.f", "green", [ "v0" ] ]
   ],
   "dependencies": {}
 }
