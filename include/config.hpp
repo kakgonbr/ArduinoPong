@@ -27,7 +27,8 @@ class Config {
     // public:     static constexpr uint8_t const BLUETOOTH_BUFFER = 15;
     public:     static constexpr uint8_t const BLUETOOTH_BUFFER = BLUETOOTH_BUFFER_SIZE;
     public:     static constexpr uint8_t const PLAYER_NAME_BUFFER = PLAYER_NAME_BUFFER_SIZE;
-    public:     static const Pair<uint8_t, uint8_t> BALL_RATE;
+    public:     static constexpr float MAX_BOUNCE_ANGLE = 0.7853982f; // 45 degrees in radian
+    public:     static const Pair<int8_t, int8_t> BALL_RATE;
 };
 
 #endif

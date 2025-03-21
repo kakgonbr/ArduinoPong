@@ -6,8 +6,10 @@
 #include "bluetooth.hpp"
 
 class Game {
-    private:    static Pair<uint8_t, uint8_t> s_ball;
-    private:    static Pair<int8_t, int8_t> s_ballVelocity;
+    using PairF = Pair<float, float>;
+
+    private:    static PairF s_ball;
+    private:    static PairF s_ballVelocity;
     private:    static Pair<uint8_t, uint8_t> s_score;
     private:    static int8_t s_player1Name[Config::PLAYER_NAME_BUFFER];
     private:    static int8_t s_player2Name[Config::PLAYER_NAME_BUFFER];
@@ -19,9 +21,10 @@ class Game {
 
     // public:     explicit Game();
 
-    public:     static void tick(Pair<uint8_t, uint8_t> const t_leftPaddle, Pair<uint8_t, uint8_t> const t_rightPaddle);
+    public:     static void handlePaddleCollision(const Pair<uint8_t, uint8_t>& paddle);
+    public:     static void tick(const Pair<uint8_t, uint8_t>& t_leftPaddle, const Pair<uint8_t, uint8_t>& t_rightPaddle);
     public:     static Pair<uint8_t, uint8_t>& getScore();
-    public:     static Pair<uint8_t, uint8_t>& getBall();
+    public:     static PairF& getBall();
     public:     static void throwBall(uint8_t t_direction);
     public:     static void preGame();
     // public:     static void setPaddles(Pair<uint16_t, uint16_t> const t_leftPaddle, Pair<uint16_t, uint16_t> const t_rightPaddle);
