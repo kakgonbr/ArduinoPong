@@ -124,17 +124,19 @@ void Game::preGame()
     while (!Bluetooth::readAvailable())
     {
         Bluetooth::readToBuffer();
+        delay(500);
     }
-
+    
     memcpy(s_player1Name, Bluetooth::s_buffer, Config::PLAYER_NAME_BUFFER);
     Bluetooth::resetBuffer();
-
+    
     memcpy(Bluetooth::s_buffer, "Enter Player 2 Name:\n", 22);
     Bluetooth::writeFromBuffer();
-
+    
     while (!Bluetooth::readAvailable())
     {
         Bluetooth::readToBuffer();
+        delay(500);
     }
 
     memcpy(s_player2Name, Bluetooth::s_buffer, Config::PLAYER_NAME_BUFFER);
